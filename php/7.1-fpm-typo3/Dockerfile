@@ -2,8 +2,9 @@ FROM debian:stretch-slim
 
 MAINTAINER Falk Gebauer <fgebauer@3pc.de>
 
-# supress debconf warnings
-ENV DEBIAN_FRONTEND=noninteractive
+# supress debconf warnings in build scope
+ARG TERM=linux
+ARG DEBIAN_FRONTEND=noninteractive
 
 ENV PHP_INI_DIR=/etc/php/7.1
 ENV TZ=Europe/Berlin
@@ -18,7 +19,6 @@ RUN apt update && apt dist-upgrade -y && \
         ssmtp \
         graphicsmagick \
         php7.1-apcu \
-        php7.1-bz2 \
         php7.1-bcmath \
         php7.1-cli \
         php7.1-common \
