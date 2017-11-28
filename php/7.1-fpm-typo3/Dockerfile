@@ -35,7 +35,7 @@ RUN apt update && apt dist-upgrade -y && \
     rm ${PHP_INI_DIR}/fpm/pool.d/www.conf && \
     apt-get clean -y && \
     apt-get autoclean -y && \
-    apt-get remove -y wget curl && \
+    apt-get remove -y wget && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*
 
