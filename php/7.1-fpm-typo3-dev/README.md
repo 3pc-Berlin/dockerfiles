@@ -30,6 +30,8 @@ sendmail_path = /usr/sbin/ssmtp -t
 
 * Xdebug
 
+* Composer
+
 * Additional packages
 
     * Graphicsmagick

@@ -2,7 +2,8 @@ FROM dreipc/php:7.1-fpm-typo3
 
 MAINTAINER Falk Gebauer <fgebauer@3pc.de>
 
-ENV XDEBUG_IDE_KEY=PHPSTORM \
+ENV COMPOSER_ALLOW_SUPERUSER=1 \
+    XDEBUG_IDE_KEY=PHPSTORM \
     XDEBUG_REMOTE_PORT=9001 \
     XDEBUG_REMOTE_HANDLER=dbgp \
     XDEBUG_MAX_NESTING_LEVEL=400 \
@@ -18,6 +19,7 @@ RUN apt update && apt dist-upgrade -y && \
     apt install -y wget && \
     apt install -y --no-install-recommends \
     php-xdebug && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer  && \
     wget -O /usr/local/bin/mhsendmail https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64  && \
     chmod +x /usr/local/bin/mhsendmail && \
     apt-get clean -y && \
