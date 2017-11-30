@@ -16,7 +16,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install PHP from deb.sury.org
 RUN apt update && apt dist-upgrade -y && \
-    apt install -y wget && \
+    apt install -y wget git && \
     apt install -y --no-install-recommends \
     php-xdebug && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer  && \
