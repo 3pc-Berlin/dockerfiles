@@ -29,6 +29,7 @@ RUN apt update && apt dist-upgrade -y && \
         php7.1-mbstring \
         php7.1-mysqli \
         php7.1-zip \
+        php7.1-soap \
         php7.1-xml && \
     ln -s ${PHP_INI_DIR}/mods-available/custom.ini ${PHP_INI_DIR}/cli/conf.d/999-custom.ini && \
     ln -s ${PHP_INI_DIR}/mods-available/custom.ini ${PHP_INI_DIR}/fpm/conf.d/999-custom.ini && \
@@ -42,6 +43,6 @@ RUN apt update && apt dist-upgrade -y && \
 ADD conf.d/custom.ini ${PHP_INI_DIR}/mods-available/custom.ini
 ADD fpm/php-fpm.conf ${PHP_INI_DIR}/fpm/php-fpm.conf
 
-WORKDIR /var/www/html
+WORKDIR /var/www
 EXPOSE 9000
 CMD ["php-fpm7.1"]

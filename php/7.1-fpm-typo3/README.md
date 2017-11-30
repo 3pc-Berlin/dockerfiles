@@ -13,6 +13,7 @@ Image for PHP 7.1 with Fpm, Cli, packages and settings for use with [TYPO3](http
     * Json
     * Mbstring
     * Mysqli
+    * Soap
     * Zip
     * Xml
   
