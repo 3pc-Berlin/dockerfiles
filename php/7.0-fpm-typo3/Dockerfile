@@ -6,7 +6,7 @@ MAINTAINER Falk Gebauer <fgebauer@3pc.de>
 ARG TERM=linux
 ARG DEBIAN_FRONTEND=noninteractive
 
-ENV PHP_INI_DIR=/etc/php/7.1
+ENV PHP_INI_DIR=/etc/php/7.0
 ENV TZ=Europe/Berlin
 
 # Install PHP from deb.sury.org
@@ -18,18 +18,18 @@ RUN apt update && apt dist-upgrade -y && \
     apt install -y --no-install-recommends \
         ssmtp \
         graphicsmagick \
-        php7.1-fpm \
-        php7.1-bcmath \
-        php7.1-cli \
-        php7.1-common \
-        php7.1-curl \
-        php7.1-gd \
-        php7.1-json \
-        php7.1-mbstring \
-        php7.1-mysqli \
-        php7.1-zip \
-        php7.1-soap \
-        php7.1-xml \
+        php7.0-fpm \
+        php7.0-bcmath \
+        php7.0-cli \
+        php7.0-common \
+        php7.0-curl \
+        php7.0-gd \
+        php7.0-json \
+        php7.0-mbstring \
+        php7.0-mysqli \
+        php7.0-zip \
+        php7.0-soap \
+        php7.0-xml \
         php-apcu && \
     ln -s ${PHP_INI_DIR}/mods-available/custom.ini ${PHP_INI_DIR}/cli/conf.d/999-custom.ini && \
     ln -s ${PHP_INI_DIR}/mods-available/custom.ini ${PHP_INI_DIR}/fpm/conf.d/999-custom.ini && \
@@ -45,4 +45,4 @@ ADD fpm/php-fpm.conf ${PHP_INI_DIR}/fpm/php-fpm.conf
 
 WORKDIR /var/www
 EXPOSE 9000
-CMD ["php-fpm7.1"]
+CMD ["php-fpm7.0"]

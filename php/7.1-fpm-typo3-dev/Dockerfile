@@ -30,4 +30,13 @@ RUN apt update && apt dist-upgrade -y && \
 
 EXPOSE 9000 9001
 
-CMD ["php-fpm7.1", "-d", "sendmail_path=/usr/local/bin/mhsendmail --smtp-addr=${SMTP_HOST}:${SMTP_PORT}", "-d", "xdebug.remote_enable=1", "-d", "xdebug.remote_connect_back=1", "-d", "xdebug.remote_port=${XDEBUG_REMOTE_PORT}", "-d", "xdebug.remote_handler=${XDEBUG_REMOTE_HANDLER}", "-d", "xdebug.max_nesting_level=${XDEBUG_MAX_NESTING_LEVEL}"]
+CMD ["php-fpm7.1", \
+    "-d", \
+    "sendmail_path=/usr/local/bin/mhsendmail --smtp-addr=${SMTP_HOST}:${SMTP_PORT}", \
+    "-d", "log_errors=1", \
+    "-d", "error_log=/dev/stderr", \
+    "-d", "xdebug.remote_enable=1", \
+    "-d", "xdebug.remote_connect_back=1", \
+    "-d", "xdebug.remote_port=${XDEBUG_REMOTE_PORT}", \
+    "-d", "xdebug.remote_handler=${XDEBUG_REMOTE_HANDLER}", \
+    "-d", "xdebug.max_nesting_level=${XDEBUG_MAX_NESTING_LEVEL}"]

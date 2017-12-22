@@ -1,4 +1,4 @@
-FROM dreipc/php:5.6-fpm-typo3
+FROM dreipc/php:7.0-fpm-typo3
 
 MAINTAINER Falk Gebauer <fgebauer@3pc.de>
 
@@ -30,7 +30,7 @@ RUN apt update && apt dist-upgrade -y && \
 
 EXPOSE 9000 9001
 
-CMD ["php-fpm5.6", \
+CMD ["php-fpm7.0", \
     "-d", \
     "sendmail_path=/usr/local/bin/mhsendmail --smtp-addr=${SMTP_HOST}:${SMTP_PORT}", \
     "-d", "log_errors=1", \
