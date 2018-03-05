@@ -1,6 +1,7 @@
 FROM debian:stretch-slim
 
-MAINTAINER Falk Gebauer <fgebauer@3pc.de>
+LABEL maintainer="fgebauer@3pc.de"
+LABEL description="Docker base image with gosu for handling permission issues with docker containers."
 
 RUN apt update && apt -y --no-install-recommends install \
     ca-certificates \
